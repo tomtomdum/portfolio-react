@@ -2,7 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getCoinbaseSpotPrice } from "@/services/coinbase";
+import { getCoinbaseSpotPrice } from "../services/coinbase"; // Adjust the import path as needed
 import type { Coin } from "@/models/coin";
 
 export default function Dashboard() {
