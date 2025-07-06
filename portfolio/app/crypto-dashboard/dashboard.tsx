@@ -1,27 +1,27 @@
 // app/crypto-dashboard/page.tsx (or wherever your Dashboard lives)
-'use client';
+"use client";
 
-import type { Coin } from '@/models/coin';
+import type { Coin } from "../models/coin";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { getCoinbaseSpotPrice } from '../services/coinbase'; // Adjust the import path as needed
+import { getCoinbaseSpotPrice } from "../services/coinbase"; // Adjust the import path as needed
 
 export default function Dashboard() {
 	const [coin, setCoin] = useState<Coin>({
-		amount: '',
-		base: '',
-		currency: '',
+		amount: "",
+		base: "",
+		currency: "",
 	});
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
-		getCoinbaseSpotPrice('btc')
+		getCoinbaseSpotPrice("btc")
 			.then((data) => {
 				setCoin(data);
 			})
 			.catch((err) => {
-				console.error('Failed to load price:', err);
+				console.error("Failed to load price:", err);
 				// you could set an error state here if you want
 			})
 			.finally(() => {
